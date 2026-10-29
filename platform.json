@@ -1,4 +1,5 @@
 {
+  "api_path_prefix": "/jumia/",
   "async_class_name": "AsyncJumiaClient",
   "class_name": "JumiaClient",
   "contract_revision": "sha256:ec487d49dce5bc76b62cd97844910f1b3def9fbc1e610492cc9432624f6ea6e4",

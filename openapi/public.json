@@ -1,0 +1,1287 @@
+{
+  "basePath": "/api/v1",
+  "definitions": {
+    "app.Response": {
+      "description": "The Response struct is used for wrapping the API response with a code, message, and data.",
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "description": "Data is the response data (can be any object or null)\n@example {\"id\": 1, \"name\": \"John Doe\"}"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "jumia.CategoriesResponse": {
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/definitions/jumia.CategoryNode"
+          },
+          "type": "array"
+        },
+        "category": {
+          "example": "phones-tablets",
+          "type": "string"
+        },
+        "count": {
+          "example": 12,
+          "type": "integer"
+        },
+        "country": {
+          "example": "ng",
+          "type": "string"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.CategoryNode": {
+      "properties": {
+        "children": {
+          "items": {
+            "$ref": "#/definitions/jumia.CategoryNode"
+          },
+          "type": "array"
+        },
+        "id": {
+          "example": "8070",
+          "type": "string"
+        },
+        "name": {
+          "example": "Phones & Tablets",
+          "type": "string"
+        },
+        "slug": {
+          "example": "phones-tablets",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://www.jumia.com.ng/phones-tablets/",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.CountriesResponse": {
+      "properties": {
+        "count": {
+          "example": 4,
+          "type": "integer"
+        },
+        "countries": {
+          "items": {
+            "$ref": "#/definitions/jumia.Country"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.Country": {
+      "properties": {
+        "code": {
+          "example": "ng",
+          "type": "string"
+        },
+        "currency": {
+          "example": "NGN",
+          "type": "string"
+        },
+        "domain": {
+          "example": "www.jumia.com.ng",
+          "type": "string"
+        },
+        "name": {
+          "example": "Nigeria",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.Listing": {
+      "properties": {
+        "brand": {
+          "example": "Samsung",
+          "type": "string"
+        },
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "currency": {
+          "example": "NGN",
+          "type": "string"
+        },
+        "discount_percent": {
+          "example": 20,
+          "type": "integer"
+        },
+        "image": {
+          "type": "string"
+        },
+        "jumia_express": {
+          "type": "boolean"
+        },
+        "name": {
+          "example": "Galaxy A07 6.7\" 4GB RAM/128GB ROM - Black",
+          "type": "string"
+        },
+        "official_store": {
+          "type": "boolean"
+        },
+        "original_price": {
+          "example": 250000,
+          "type": "number"
+        },
+        "out_of_stock": {
+          "type": "boolean"
+        },
+        "price": {
+          "example": 199999,
+          "type": "number"
+        },
+        "price_max": {
+          "type": "number"
+        },
+        "rating": {
+          "example": 4.1,
+          "type": "number"
+        },
+        "rating_count": {
+          "example": 396,
+          "type": "integer"
+        },
+        "sku": {
+          "example": "SA948MP6Z6LPDNAFAMZ",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://www.jumia.com.ng/samsung-galaxy-a07-418619812.html",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.ListingResponse": {
+      "properties": {
+        "category": {
+          "example": "phones-tablets",
+          "type": "string"
+        },
+        "count": {
+          "example": 40,
+          "type": "integer"
+        },
+        "country": {
+          "example": "ng",
+          "type": "string"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "has_next": {
+          "example": true,
+          "type": "boolean"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "products": {
+          "items": {
+            "$ref": "#/definitions/jumia.Listing"
+          },
+          "type": "array"
+        },
+        "query": {
+          "example": "wireless earbuds",
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "total_count": {
+          "example": 7522,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.Product": {
+      "properties": {
+        "availability": {
+          "example": "InStock",
+          "type": "string"
+        },
+        "brand": {
+          "example": "Samsung",
+          "type": "string"
+        },
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "country": {
+          "example": "ng",
+          "type": "string"
+        },
+        "currency": {
+          "example": "NGN",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "discount_percent": {
+          "example": 20,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "key_features": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "original_price": {
+          "example": 250000,
+          "type": "number"
+        },
+        "price": {
+          "example": 199999,
+          "type": "number"
+        },
+        "rating": {
+          "example": 4.1,
+          "type": "number"
+        },
+        "rating_count": {
+          "example": 396,
+          "type": "integer"
+        },
+        "seller": {
+          "$ref": "#/definitions/jumia.Seller"
+        },
+        "sku": {
+          "example": "SA948MP6Z6LPDNAFAMZ",
+          "type": "string"
+        },
+        "specifications": {
+          "items": {
+            "$ref": "#/definitions/jumia.Specification"
+          },
+          "type": "array"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.RatingBucket": {
+      "properties": {
+        "count": {
+          "example": 220,
+          "type": "integer"
+        },
+        "stars": {
+          "example": 5,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.Review": {
+      "properties": {
+        "author": {
+          "example": "Victor",
+          "type": "string"
+        },
+        "date": {
+          "example": "2026-10-19",
+          "type": "string"
+        },
+        "rating": {
+          "example": 5,
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "example": "i love it",
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.ReviewsResponse": {
+      "properties": {
+        "average_rating": {
+          "example": 4.1,
+          "type": "number"
+        },
+        "count": {
+          "example": 10,
+          "type": "integer"
+        },
+        "country": {
+          "example": "ng",
+          "type": "string"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "has_next": {
+          "example": true,
+          "type": "boolean"
+        },
+        "histogram": {
+          "items": {
+            "$ref": "#/definitions/jumia.RatingBucket"
+          },
+          "type": "array"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "rating_count": {
+          "example": 396,
+          "type": "integer"
+        },
+        "review_count": {
+          "example": 147,
+          "type": "integer"
+        },
+        "reviews": {
+          "items": {
+            "$ref": "#/definitions/jumia.Review"
+          },
+          "type": "array"
+        },
+        "sku": {
+          "example": "SA948MP6Z6LPDNAFAMZ",
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.Seller": {
+      "properties": {
+        "followers": {
+          "example": 3387,
+          "type": "integer"
+        },
+        "id": {
+          "example": "338501",
+          "type": "string"
+        },
+        "name": {
+          "example": "CHEAP ZONE - AC",
+          "type": "string"
+        },
+        "score_percent": {
+          "example": 96,
+          "type": "number"
+        },
+        "shipping_speed": {
+          "example": "Excellent",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.SitemapFile": {
+      "properties": {
+        "language": {
+          "example": "en",
+          "type": "string"
+        },
+        "last_modified": {
+          "example": "2026-10-19",
+          "type": "string"
+        },
+        "name": {
+          "example": "products-sitemap-9.xml.gz",
+          "type": "string"
+        },
+        "type": {
+          "example": "products",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.SitemapURL": {
+      "properties": {
+        "image": {
+          "type": "string"
+        },
+        "last_modified": {
+          "example": "2026-04-11",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.SitemapURLsResponse": {
+      "properties": {
+        "count": {
+          "example": 1000,
+          "type": "integer"
+        },
+        "country": {
+          "example": "ng",
+          "type": "string"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "has_next": {
+          "example": true,
+          "type": "boolean"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "page_size": {
+          "example": 1000,
+          "type": "integer"
+        },
+        "sitemap": {
+          "example": "products-sitemap-9.xml.gz",
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "total_count": {
+          "example": 16000,
+          "type": "integer"
+        },
+        "urls": {
+          "items": {
+            "$ref": "#/definitions/jumia.SitemapURL"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.SitemapsResponse": {
+      "properties": {
+        "count": {
+          "example": 61,
+          "type": "integer"
+        },
+        "country": {
+          "example": "ng",
+          "type": "string"
+        },
+        "fetched_at": {
+          "type": "string"
+        },
+        "sitemaps": {
+          "items": {
+            "$ref": "#/definitions/jumia.SitemapFile"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.Specification": {
+      "properties": {
+        "name": {
+          "example": "GTIN Barcode",
+          "type": "string"
+        },
+        "value": {
+          "example": "07205341072713",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.categoriesResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/jumia.CategoriesResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.countriesResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/jumia.CountriesResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.listingResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/jumia.ListingResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.productResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/jumia.Product"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.reviewsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/jumia.ReviewsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.sitemapURLsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/jumia.SitemapURLsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "jumia.sitemapsResponseDoc": {
+      "properties": {
+        "code": {
+          "example": 200,
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/jumia.SitemapsResponse"
+        },
+        "msg": {
+          "example": "OK",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "api.crawlora.net",
+  "info": {
+    "contact": {
+      "email": "support@crawlora.net",
+      "name": "API Support",
+      "url": "https://crawlora.net"
+    },
+    "description": "Crawlora is a hosted web-data and SERP API: call documented REST endpoints and get normalized JSON instead of HTML to parse — across search/SERP, maps and local, e-commerce, app stores, social, media and finance. One API key; Crawlora runs the proxy rotation, headless browsers and parsing behind the scenes. Billed pay-on-success: charged only on a successful 2xx response, 1-10 credits per call, with a free tier of 2,000 credits per month and no card. A hosted MCP server (mcp.crawlora.net/mcp) exposes the same catalog as agent tools. Search endpoints accept `q` as a universal alias for whichever search-term parameter they document (`query`, `term`, `keyword`, or Amazon's `k`), so one parameter name works across the whole catalog; an explicitly supplied documented name always wins.",
+    "license": {
+      "name": "Crawlora Terms of Service",
+      "url": "https://crawlora.net/terms"
+    },
+    "termsOfService": "https://crawlora.net/terms",
+    "title": "Crawlora API",
+    "version": "1.2",
+    "x-logo": {
+      "altText": "Crawlora",
+      "backgroundColor": "#FFFFFF",
+      "url": "https://raw.githubusercontent.com/Crawlora-org/crawlora-mcp/main/assets/logo-400x400.png"
+    }
+  },
+  "paths": {
+    "/jumia/categories": {
+      "get": {
+        "description": "Lists the category slugs that jumia-category accepts. Without category it returns the storefront's top-level departments; with category it returns that category's direct sub-categories, each with its numeric id. Walk the tree by passing a returned slug back as category. country is required; see jumia-countries. Jumia sits behind an anti-bot challenge that clears on only some connections, so a call can take up to about 50 seconds and may return 503; retry it.",
+        "operationId": "jumia-categories",
+        "parameters": [
+          {
+            "description": "Jumia country storefront",
+            "enum": [
+              "ci",
+              "eg",
+              "ke",
+              "ma",
+              "ng",
+              "sn"
+            ],
+            "in": "query",
+            "name": "country",
+            "required": true,
+            "type": "string",
+            "x-example": "ng"
+          },
+          {
+            "description": "Category slug whose sub-categories to list; omit for top-level departments",
+            "in": "query",
+            "name": "category",
+            "type": "string",
+            "x-example": "phones-tablets"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/jumia.categoriesResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "List Jumia categories",
+        "tags": [
+          "jumia"
+        ]
+      }
+    },
+    "/jumia/category": {
+      "get": {
+        "description": "Browses one Jumia category listing by slug and returns the same product cards as jumia-search, plus the category's upstream total_count and a has_next flag. Take the slug from jumia-categories (top-level departments, or a department's sub-categories). Jumia serves at most 50 pages. Jumia sits behind an anti-bot challenge that clears on only some connections, so a call can take up to about 50 seconds and may return 503; retry it. country is required; see jumia-countries.",
+        "operationId": "jumia-category",
+        "parameters": [
+          {
+            "description": "Jumia country storefront",
+            "enum": [
+              "ci",
+              "eg",
+              "ke",
+              "ma",
+              "ng",
+              "sn"
+            ],
+            "in": "query",
+            "name": "country",
+            "required": true,
+            "type": "string",
+            "x-example": "ng"
+          },
+          {
+            "description": "Category slug from jumia-categories",
+            "in": "query",
+            "name": "category",
+            "required": true,
+            "type": "string",
+            "x-example": "phones-tablets"
+          },
+          {
+            "default": 1,
+            "description": "1-based result page, 1 to 50",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/jumia.listingResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Browse a Jumia category",
+        "tags": [
+          "jumia"
+        ]
+      }
+    },
+    "/jumia/countries": {
+      "get": {
+        "description": "Returns the Jumia country storefronts accepted by the country parameter on jumia-search, jumia-category and jumia-categories, with each storefront's domain and currency. Static metadata.",
+        "operationId": "jumia-countries",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/jumia.countriesResponseDoc"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "List supported Jumia country storefronts",
+        "tags": [
+          "jumia"
+        ]
+      }
+    },
+    "/jumia/product": {
+      "get": {
+        "description": "Returns one Jumia product: name, brand, sku, images, price in the storefront's currency with original price and discount, availability, rating and rating count, category path, seller (name, id, score, followers, shipping speed), description, key features and the specification table. Pass the url returned by jumia-search or jumia-category; the storefront country is taken from the URL host. Jumia sits behind an anti-bot challenge that clears on only some connections, so a call can take up to about 50 seconds and may return 503; retry it. A product id Jumia no longer serves returns 404.",
+        "operationId": "jumia-product",
+        "parameters": [
+          {
+            "description": "Absolute Jumia product URL from a search or category result",
+            "in": "query",
+            "name": "url",
+            "required": true,
+            "type": "string",
+            "x-example": "https://www.jumia.com.ng/samsung-galaxy-a07-6.7-4gb-ram128gbgb-rom-black-418619812.html"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/jumia.productResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get a Jumia product",
+        "tags": [
+          "jumia"
+        ]
+      }
+    },
+    "/jumia/reviews": {
+      "get": {
+        "description": "Returns one page of a Jumia product's written, verified customer reviews (rating, title, text, date, first name of the author) with the rating summary: average rating, total ratings, total written reviews and the count of ratings per star. Reviews are 10 per page. A product with ratings but no written reviews returns an empty list with the summary. Pass the sku returned by jumia-search, jumia-category or jumia-product. Jumia sits behind an anti-bot challenge that clears on only some connections, so a call can take up to about 50 seconds and may return 503; retry it. country is required; see jumia-countries.",
+        "operationId": "jumia-reviews",
+        "parameters": [
+          {
+            "description": "Jumia country storefront",
+            "enum": [
+              "ci",
+              "eg",
+              "ke",
+              "ma",
+              "ng",
+              "sn"
+            ],
+            "in": "query",
+            "name": "country",
+            "required": true,
+            "type": "string",
+            "x-example": "ng"
+          },
+          {
+            "description": "Product sku",
+            "in": "query",
+            "name": "sku",
+            "required": true,
+            "type": "string",
+            "x-example": "SA948MP6Z6LPDNAFAMZ"
+          },
+          {
+            "default": 1,
+            "description": "1-based page of reviews, 10 per page",
+            "in": "query",
+            "maximum": 500,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/jumia.reviewsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get the reviews of a Jumia product",
+        "tags": [
+          "jumia"
+        ]
+      }
+    },
+    "/jumia/search": {
+      "get": {
+        "description": "Searches a Jumia country storefront by keyword and returns one page of product cards with price in the storefront's currency, original price and discount, rating, brand, categories and badges, plus the upstream total_count and a has_next flag. Jumia serves at most 50 pages. A search with no matches returns an empty products list. Jumia sits behind an anti-bot challenge that clears on only some connections, so a call can take up to about 50 seconds and may return 503; retry it. country is required (there is no default storefront); see jumia-countries.",
+        "operationId": "jumia-search",
+        "parameters": [
+          {
+            "description": "Jumia country storefront",
+            "enum": [
+              "ci",
+              "eg",
+              "ke",
+              "ma",
+              "ng",
+              "sn"
+            ],
+            "in": "query",
+            "name": "country",
+            "required": true,
+            "type": "string",
+            "x-example": "ng"
+          },
+          {
+            "description": "Product search keyword",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "wireless earbuds"
+          },
+          {
+            "default": 1,
+            "description": "1-based result page, 1 to 50",
+            "in": "query",
+            "maximum": 50,
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/jumia.listingResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Jumia products",
+        "tags": [
+          "jumia"
+        ]
+      }
+    },
+    "/jumia/sitemap-urls": {
+      "get": {
+        "description": "Returns one page of the URLs listed in a Jumia sitemap file, each with its last-modified date and first image, plus the total number of URLs in the file. A product file holds up to 16,000 product URLs; page through it with page and page_size (up to 5000). Take the file name from jumia-sitemaps. A page past the end returns an empty list. Jumia sits behind an anti-bot challenge that clears on only some connections, so a call can take up to about 50 seconds and may return 503; retry it. country is required; see jumia-countries.",
+        "operationId": "jumia-sitemap-urls",
+        "parameters": [
+          {
+            "description": "Jumia country storefront",
+            "enum": [
+              "ci",
+              "eg",
+              "ke",
+              "ma",
+              "ng",
+              "sn"
+            ],
+            "in": "query",
+            "name": "country",
+            "required": true,
+            "type": "string",
+            "x-example": "ng"
+          },
+          {
+            "description": "Sitemap file name from jumia-sitemaps",
+            "in": "query",
+            "name": "sitemap",
+            "required": true,
+            "type": "string",
+            "x-example": "products-sitemap-9.xml.gz"
+          },
+          {
+            "default": 1,
+            "description": "1-based page of URLs",
+            "in": "query",
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          },
+          {
+            "default": 1000,
+            "description": "URLs per page",
+            "in": "query",
+            "maximum": 5000,
+            "minimum": 1,
+            "name": "page_size",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/jumia.sitemapURLsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Read the URLs in a Jumia sitemap file",
+        "tags": [
+          "jumia"
+        ]
+      }
+    },
+    "/jumia/sitemaps": {
+      "get": {
+        "description": "Lists the sitemap files a Jumia storefront publishes: product, brand, category and curated-page (mlps) files, each with its name, type, language, last-modified date and URL. Pass a returned name to jumia-sitemap-urls to read the URLs in it. Optionally narrow to one type. Jumia sits behind an anti-bot challenge that clears on only some connections, so a call can take up to about 50 seconds and may return 503; retry it. country is required; see jumia-countries.",
+        "operationId": "jumia-sitemaps",
+        "parameters": [
+          {
+            "description": "Jumia country storefront",
+            "enum": [
+              "ci",
+              "eg",
+              "ke",
+              "ma",
+              "ng",
+              "sn"
+            ],
+            "in": "query",
+            "name": "country",
+            "required": true,
+            "type": "string",
+            "x-example": "ng"
+          },
+          {
+            "description": "Only list one kind of sitemap",
+            "enum": [
+              "products",
+              "brands",
+              "categories",
+              "mlps"
+            ],
+            "in": "query",
+            "name": "type",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/jumia.sitemapsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "List the sitemap files of a Jumia storefront",
+        "tags": [
+          "jumia"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "x-api-key",
+      "type": "apiKey"
+    }
+  },
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "jumia"
+    }
+  ]
+}

@@ -1,0 +1,522 @@
+{
+  "platform": "jumia",
+  "operationCount": 8,
+  "operationIds": [
+    "jumia-categories",
+    "jumia-category",
+    "jumia-countries",
+    "jumia-product",
+    "jumia-reviews",
+    "jumia-search",
+    "jumia-sitemap-urls",
+    "jumia-sitemaps"
+  ],
+  "methods": {
+    "categories": "jumia-categories",
+    "category": "jumia-category",
+    "countries": "jumia-countries",
+    "product": "jumia-product",
+    "reviews": "jumia-reviews",
+    "search": "jumia-search",
+    "sitemap_urls": "jumia-sitemap-urls",
+    "sitemaps": "jumia-sitemaps"
+  },
+  "operations": {
+    "jumia-categories": {
+      "id": "jumia-categories",
+      "method": "GET",
+      "path": "/jumia/categories",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ]
+        },
+        {
+          "name": "category",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Jumia country storefront",
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ],
+          "in": "query",
+          "name": "country",
+          "required": true,
+          "type": "string",
+          "x-example": "ng"
+        },
+        {
+          "description": "Category slug whose sub-categories to list; omit for top-level departments",
+          "in": "query",
+          "name": "category",
+          "type": "string",
+          "x-example": "phones-tablets"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "jumia-category": {
+      "id": "jumia-category",
+      "method": "GET",
+      "path": "/jumia/category",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ]
+        },
+        {
+          "name": "category",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Jumia country storefront",
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ],
+          "in": "query",
+          "name": "country",
+          "required": true,
+          "type": "string",
+          "x-example": "ng"
+        },
+        {
+          "description": "Category slug from jumia-categories",
+          "in": "query",
+          "name": "category",
+          "required": true,
+          "type": "string",
+          "x-example": "phones-tablets"
+        },
+        {
+          "default": 1,
+          "description": "1-based result page, 1 to 50",
+          "in": "query",
+          "maximum": 50,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "jumia-countries": {
+      "id": "jumia-countries",
+      "method": "GET",
+      "path": "/jumia/countries",
+      "pathParams": [],
+      "queryParams": [],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "jumia-product": {
+      "id": "jumia-product",
+      "method": "GET",
+      "path": "/jumia/product",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "url",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Absolute Jumia product URL from a search or category result",
+          "in": "query",
+          "name": "url",
+          "required": true,
+          "type": "string",
+          "x-example": "https://www.jumia.com.ng/samsung-galaxy-a07-6.7-4gb-ram128gbgb-rom-black-418619812.html"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "jumia-reviews": {
+      "id": "jumia-reviews",
+      "method": "GET",
+      "path": "/jumia/reviews",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ]
+        },
+        {
+          "name": "sku",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Jumia country storefront",
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ],
+          "in": "query",
+          "name": "country",
+          "required": true,
+          "type": "string",
+          "x-example": "ng"
+        },
+        {
+          "description": "Product sku",
+          "in": "query",
+          "name": "sku",
+          "required": true,
+          "type": "string",
+          "x-example": "SA948MP6Z6LPDNAFAMZ"
+        },
+        {
+          "default": 1,
+          "description": "1-based page of reviews, 10 per page",
+          "in": "query",
+          "maximum": 500,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "jumia-search": {
+      "id": "jumia-search",
+      "method": "GET",
+      "path": "/jumia/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ]
+        },
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Jumia country storefront",
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ],
+          "in": "query",
+          "name": "country",
+          "required": true,
+          "type": "string",
+          "x-example": "ng"
+        },
+        {
+          "description": "Product search keyword",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "wireless earbuds"
+        },
+        {
+          "default": 1,
+          "description": "1-based result page, 1 to 50",
+          "in": "query",
+          "maximum": 50,
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "jumia-sitemap-urls": {
+      "id": "jumia-sitemap-urls",
+      "method": "GET",
+      "path": "/jumia/sitemap-urls",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ]
+        },
+        {
+          "name": "sitemap",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "page_size",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Jumia country storefront",
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ],
+          "in": "query",
+          "name": "country",
+          "required": true,
+          "type": "string",
+          "x-example": "ng"
+        },
+        {
+          "description": "Sitemap file name from jumia-sitemaps",
+          "in": "query",
+          "name": "sitemap",
+          "required": true,
+          "type": "string",
+          "x-example": "products-sitemap-9.xml.gz"
+        },
+        {
+          "default": 1,
+          "description": "1-based page of URLs",
+          "in": "query",
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        },
+        {
+          "default": 1000,
+          "description": "URLs per page",
+          "in": "query",
+          "maximum": 5000,
+          "minimum": 1,
+          "name": "page_size",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "jumia-sitemaps": {
+      "id": "jumia-sitemaps",
+      "method": "GET",
+      "path": "/jumia/sitemaps",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "country",
+          "in": "query",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ]
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "products",
+            "brands",
+            "categories",
+            "mlps"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Jumia country storefront",
+          "enum": [
+            "ci",
+            "eg",
+            "ke",
+            "ma",
+            "ng",
+            "sn"
+          ],
+          "in": "query",
+          "name": "country",
+          "required": true,
+          "type": "string",
+          "x-example": "ng"
+        },
+        {
+          "description": "Only list one kind of sitemap",
+          "enum": [
+            "products",
+            "brands",
+            "categories",
+            "mlps"
+          ],
+          "in": "query",
+          "name": "type",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    }
+  }
+}

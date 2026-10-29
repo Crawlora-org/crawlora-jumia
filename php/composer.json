@@ -1,0 +1,43 @@
+{
+  "name": "crawlora/jumia",
+  "description": "Crawlora Jumia API client with 8 endpoints for country and category discovery, product search, and product details",
+  "keywords": [
+    "crawlora",
+    "api-client",
+    "sdk",
+    "web-scraping",
+    "scraping-api",
+    "jumia",
+    "jumia-api",
+    "jumia-scraper",
+    "jumia-data",
+    "jumia-country-category-discovery",
+    "jumia-product-search",
+    "jumia-product-details"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.1",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Crawlora\\Jumia\\": "src/Crawlora/Jumia/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Crawlora\\Jumia\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "php tests/client_test.php"
+  },
+  "homepage": "https://crawlora.net/?utm_source=packagist&utm_medium=referral&utm_campaign=platform-clients&utm_content=jumia-php-homepage",
+  "support": {
+    "source": "https://github.com/Crawlora-org/crawlora-jumia",
+    "docs": "https://crawlora.net/docs?utm_source=packagist&utm_medium=referral&utm_campaign=platform-clients&utm_content=jumia-php-api-docs"
+  }
+}

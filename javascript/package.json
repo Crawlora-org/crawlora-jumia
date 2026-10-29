@@ -1,0 +1,34 @@
+{
+  "name": "@crawlora-org/jumia",
+  "version": "0.1.0",
+  "description": "Crawlora Jumia API client with 8 endpoints for country and category discovery, product search, and product details",
+  "homepage": "https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=jumia-javascript-homepage",
+  "bugs": { "url": "https://github.com/Crawlora-org/crawlora-jumia/issues" },
+  "keywords": ["crawlora", "api-client", "sdk", "web-scraping", "scraping-api", "jumia", "jumia-api", "jumia-scraper", "jumia-data", "jumia-country-category-discovery", "jumia-product-search", "jumia-product-details"],
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js"
+    }
+  },
+  "files": ["src", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Crawlora-org/crawlora-jumia",
+    "directory": "javascript"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "typecheck": "tsc --noEmit",
+    "pack:check": "npm pack --dry-run --ignore-scripts",
+    "generate": "python3 ../scripts/generate.py"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3"
+  }
+}
